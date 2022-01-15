@@ -1,7 +1,8 @@
 #!/bin/bash
-# This script installs, updates and runs LOIC on Kali Linux.
+# This script installs, updates and runs LOIC on Ubuntu BackBox Linux 7
+#
 # Supported distributions:
-#    * Debian Bullseye ID=kali 	VERSION="2021.4"
+#    * Ubuntu ID=ubuntu     ID_LIKE=debian      PRETTY_NAME="Ubuntu 20.04.3 LTS"
 #
 # Before using you must install monodevelop from:
 # https://www.monodevelop.com/download/#fndtn-download-lin
@@ -9,14 +10,14 @@
 # Usage: bash ./loic.sh <install|update|run>
 #
 # Add the Mono repository to your system
-#The package repository hosts the packages you need, add it with the following commands.
+# The package repository hosts the packages you need, add it with the following commands.
 # Note: the packages should work on newer Debian versions too but we only test the ones listed below.
-# Debian 10 (i386, amd64, armhf, armel) <for> Debian 11 Bullseye
-sudo apt install apt-transport-https dirmngr gnupg ca-certificates
+# Debian 10 (i386, amd64, armhf, armel) <for> Ubuntu 20.04
+sudo apt install gnupg ca-certificates
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-echo "deb https://download.mono-project.com/repo/debian stable-buster main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
 sudo apt update
-GIT_REPO=https://github.com/SkyWall1/loic.git
+GIT_REPO=https://github.com/NewEraCracker/LOIC.git
 GIT_BRANCH=master
 DEB_MONO_PKG="monodevelop liblog4net-cil-dev mono-devel mono-runtime-common mono-runtime libmono-system-windows-forms4.0-cil"
 FED_MONO_PKG="mono-basic mono-devel monodevelop mono-tools"
@@ -69,7 +70,7 @@ compile_loic() {
     elif [[ $DISTRO = 'fedora' ]] ; then
         sudo yum install $FED_MONO_PKG
     fi
-    cd src; xbuild /p:TargetFrameworkVersion="v4.0"
+        cd src; xbuild /p:TargetFrameworkVersion="v4.0"
 }
 run_loic() {
     is_loic
@@ -109,3 +110,4 @@ case $1 in
         echo "Usage: $0 <install|update|run>"
         ;;
 esac
+
