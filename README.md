@@ -2,7 +2,7 @@
 # This script installs, updates and runs LOIC on Ubuntu BackBox Linux 7
 #
 # Supported distributions:
-#    * Ubuntu ID=ubuntu     ID_LIKE=debian      PRETTY_NAME="Ubuntu 20.04.3 LTS"
+#    * Ubuntu ID=ubuntu     ID_LIKE=debian      PRETTY_NAME="Ubuntu 20.04.3 LTS"    BackBox Linux 7 \n \l
 #
 # Before using you must install monodevelop from:
 # https://www.monodevelop.com/download/#fndtn-download-lin
